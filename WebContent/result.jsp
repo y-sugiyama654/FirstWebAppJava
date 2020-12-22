@@ -10,6 +10,10 @@
 <%
 	String message = (String)request.getAttribute( "login" );
 	String name = (String)session.getAttribute( "name" );
+	if (name == null) { 
+		message = "既にログアウトしています";
+		name = "ゲスト";
+	};
 %>
 
 <br><br>

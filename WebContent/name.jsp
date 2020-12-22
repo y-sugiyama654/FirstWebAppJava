@@ -17,7 +17,9 @@ String name = (String)session.getAttribute( "name" );
  
 こんにちは　<%= name %> さん<br><br>
 
-<a href="/jsp_servlet/result.jsp">前のページに戻る</a>
+<a href="/first/result.jsp">前のページに戻る</a>
+<br><br><br><br>
+<a href="/first/logout.jsp">ログアウト</a>
 <br><br><br><br>
 
 </body>
