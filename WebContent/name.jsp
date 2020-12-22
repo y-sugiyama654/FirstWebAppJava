@@ -8,8 +8,8 @@
 <br>
 
 <%
-	String message = (String)request.getAttribute( "login" );
-	String name = (String)session.getAttribute( "name" );
+String message = (String)request.getAttribute( "login" );
+String name = (String)session.getAttribute( "name" );
 %>
 
 <br><br>
@@ -17,7 +17,8 @@
  
 こんにちは　<%= name %> さん<br><br>
 
-<a href="/first/name.jsp">次のページに行く</a>
+<a href="/jsp_servlet/result.jsp">前のページに戻る</a>
+<br><br><br><br>
 
 </body>
 </html>

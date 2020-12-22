@@ -40,7 +40,6 @@ public class LoginServlet extends HttpServlet {
 
 		// リクエストにデータを追加する
 		request.setAttribute("login", status);
-		request.setAttribute("name", name);
 
 		// HttpSessionの作成とセッションにデータを追加する
 		HttpSession session = request.getSession( true );
