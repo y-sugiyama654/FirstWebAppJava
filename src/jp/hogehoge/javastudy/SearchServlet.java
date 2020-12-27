@@ -6,10 +6,12 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
+import javax.naming.InitialContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.sql.DataSource;
 
 public class SearchServlet extends HttpServlet {
 
@@ -17,6 +19,22 @@ public class SearchServlet extends HttpServlet {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	
+	//データソースの作成
+	DataSource ds;
+
+	// 初期化処理
+	public void init() throws ServletException 
+	{
+		try {
+			// 初期コンテキストを取得
+			InitialContext ic = new InitialContext();
+			// ルックアップしてデータソースを取得
+			ds = (DataSource) ic.lookup("java:comp/env/jdbc/searchman");
+		} catch (Exception e) {
+
+		}
+	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -43,11 +61,8 @@ public class SearchServlet extends HttpServlet {
 		
 	
 		try {
-			// JDBC Driver の登録
-			Class.forName("com.mysql.jdbc.Driver");
-			// Connectionの作成
-			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/company_db?serverTimezone=UTC&useSSL=false",
-					"yuta", "mysql");
+			// データソースからConnectionを取得
+			conn = ds.getConnection();
 
 			// sql文作成の準備
 			StringBuffer sql = new StringBuffer();
