@@ -14,7 +14,8 @@ public class EditServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+			throws ServletException, IOException 
+	{
 
 		// 文字コードの設定
 		request.setCharacterEncoding("Windows-31J");
@@ -36,12 +37,24 @@ public class EditServlet extends HttpServlet {
 			}
 			break;
 
+		case "delete": // 削除
+			if (shain.deleteData() == false) {
+				status = "失敗しました";
+			}
+			break;
+
 		}
 
 		// statusをセットしてresult.jspに転送
 		request.setAttribute("status", status);
 		request.getRequestDispatcher("/result2.jsp").forward(request, response);
 
+	}
+	
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException 
+	{
+		doPost(request, response);
 	}
 
 }

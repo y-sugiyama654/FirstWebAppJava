@@ -17,6 +17,7 @@
 			<td><b>«•Ê</b></td>
 			<td><b>“üŽÐ”N</b></td>
 			<td><b>ZŠ</b></td>
+			<td><b>íœ</b></td>
 		</tr>
 		<%
 			while (rset.next()) {
@@ -27,6 +28,7 @@
 			<td><%=rset.getString(3)%></td>
 			<td><%=rset.getString(4)%></td>
 			<td><%=rset.getString(5)%></td>
+			<td><a href="Edit?&mode=delete&id=<%=rset.getString(1)%>">íœ</a></td>
 		</tr>
 		<%
 			}
