@@ -42,6 +42,17 @@ public class EditServlet extends HttpServlet {
 				status = "失敗しました";
 			}
 			break;
+			
+		case "change": // 変更
+			request.setAttribute("shain", shain);
+			request.getRequestDispatcher("/change.jsp").forward(request, response);
+			return;
+
+		case "del_add": // 変更確定
+			if (!(shain.deleteData() && shain.addData())) {
+				status = "失敗しました";
+			}
+			break;
 
 		}
 
