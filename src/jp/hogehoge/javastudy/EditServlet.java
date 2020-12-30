@@ -40,7 +40,7 @@ public class EditServlet extends HttpServlet {
 
 		// statusをセットしてresult.jspに転送
 		request.setAttribute("status", status);
-		request.getRequestDispatcher("/result.jsp").forward(request, response);
+		request.getRequestDispatcher("/result2.jsp").forward(request, response);
 
 	}
 
