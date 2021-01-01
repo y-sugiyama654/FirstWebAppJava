@@ -53,7 +53,6 @@ public class EditServlet extends HttpServlet {
 				status = "失敗しました";
 			}
 			break;
-
 		}
 
 		// statusをセットしてresult.jspに転送
